@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="mainConstraint" type="id" />
+    <item name="mainRecylerView" type="id" />
+    <item name="mainTextView" type="id" />
 </resources>
