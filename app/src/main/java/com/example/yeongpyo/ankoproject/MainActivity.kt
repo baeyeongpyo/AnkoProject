@@ -15,46 +15,9 @@ import org.jetbrains.anko.wrapContent
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var recyclerview : RecyclerView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val view = mainUI_Make(this).UIMake()
-        setContentView(view)
-//            UIMake()
-
-//        recyclerview.layoutManager = LinearLayoutManager(this)
-//        recyclerview.adapter
-    }
-
-    fun UIMake(){
-        val mainconstraint = R.id.mainConstraint
-        val mainTextView = R.id.mainTextView
-        val mainRecylerView = R.id.mainRecylerView
-        constraintLayout {
-            id = R.id.mainConstraint
-            textView(" Anko!! Hello!! "){id = R.id.mainTextView}.lparams( wrapContent, wrapContent ){
-                mainconstraint.let {
-                    startToStart = it
-                    endToEnd = it
-                    topToTop = it
-                    bottomToBottom = it
-                }
-            }
-            recyclerview = recyclerView {
-                id = R.id.mainRecylerView
-            }.lparams( matchParent, wrapContent){
-                mainconstraint.let {
-                    startToStart = it
-                    endToEnd = it
-                    bottomToBottom = it
-                }
-                topToBottom = mainTextView
-                topMargin = dip(15)
-                marginEnd = dip(8)
-                marginStart = dip(8)
-                bottomMargin = dip(8)
-            }
-        }
+        val ViewMaker = mainUI_Make(this)
+        setContentView(ViewMaker.UIMake())
     }
 }

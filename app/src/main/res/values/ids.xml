@@ -3,4 +3,5 @@
     <item name="mainConstraint" type="id" />
     <item name="mainRecylerView" type="id" />
     <item name="mainTextView" type="id" />
+    <item name="ankoConstraintLayout" type="id" />
 </resources>
