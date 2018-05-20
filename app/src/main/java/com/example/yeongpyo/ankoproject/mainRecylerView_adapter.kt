@@ -5,12 +5,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.yeongpyo.ankoproject.R.id.textView
 import com.example.yeongpyo.ankoproject.anko_UI.recyclerview_dataDB
+import org.jetbrains.anko.*
 import org.jetbrains.anko.constraint.layout.constraintLayout
-import org.jetbrains.anko.dip
-import org.jetbrains.anko.find
-import org.jetbrains.anko.matchParent
-import org.jetbrains.anko.textView
 
 class mainRecylerView_adapter(val context : Context,val arr : ArrayList<recyclerview_dataDB>) : RecyclerView.Adapter<mainRecylerView_adapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder = Holder(recyclerItem(parent.context))
@@ -38,7 +36,8 @@ class mainRecylerView_adapter(val context : Context,val arr : ArrayList<recycler
     lateinit var item_textview1 : TextView
     lateinit var item_textview2 : TextView
     fun recyclerItem(context : Context) =
-        context.constraintLayout {
+        context.constraintLayout{
+            lparams( dip(matchParent), dip(400))
             id = recyclerItem
             item_textview1 = textView{ id = item_textView1_ID}.lparams(width = dip(60), height = dip(30)){
                 recyclerItem.let {
@@ -57,6 +56,5 @@ class mainRecylerView_adapter(val context : Context,val arr : ArrayList<recycler
                 }
             }
         }
-
 
 }
