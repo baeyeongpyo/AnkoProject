@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.Layout
+import android.widget.Button
+import com.example.yeongpyo.ankoproject.anko_UI.Plus_minus_UI
 import com.example.yeongpyo.ankoproject.anko_UI.mainUI_Make
 import com.example.yeongpyo.ankoproject.anko_UI.recyclerview_dataDB
 import org.jetbrains.anko.*
@@ -15,10 +17,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val ViewMaker = mainUI_Make()
-        ViewMaker.setContentView(this)
+        Plus_minus_UI().setContentView(this)
 
-        val arraylist = ArrayList<recyclerview_dataDB>().apply {
+//        val ViewMaker = mainUI_Make()
+//        ViewMaker.setContentView(this)
+
+        /*val arraylist = ArrayList<recyclerview_dataDB>().apply {
             add( recyclerview_dataDB("test1", "첫번째 테스트"))
             add( recyclerview_dataDB("test2", "두번째 테스트"))
             add( recyclerview_dataDB("test3", "세번째 테스트"))
@@ -27,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         ViewMaker.recyclerview.apply {
             adapter = mainRecylerView_adapter(arraylist)
             layoutManager = LinearLayoutManager(context)
-        }
+        }*/
     }
 
 }

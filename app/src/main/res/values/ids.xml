@@ -7,4 +7,7 @@
     <item name="recycleritem" type="id" />
     <item name="itemTextView1" type="id" />
     <item name="itemTextView2" type="id" />
+    <item name="Plus_minus_UI" type="id" />
+    <item name="Plus_button" type="id" />
+    <item name="Minus_button" type="id" />
 </resources>
