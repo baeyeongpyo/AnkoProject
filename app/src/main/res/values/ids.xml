@@ -14,5 +14,5 @@
     <item name="ConstrainSetTextVeiw" type="id" />
     <item name="ConstrainButton" type="id" />
 
-    <item name="test" type="layout"/>
+    <!--<item name="test" type="layout"/>-->
 </resources>

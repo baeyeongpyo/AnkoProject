@@ -2,9 +2,11 @@ package com.example.yeongpyo.ankoproject.ConstraintSetTest
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.support.annotation.LayoutRes
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.transition.ChangeBounds
+import android.transition.TransitionInflater
 import android.transition.TransitionManager
 import android.view.animation.OvershootInterpolator
 import android.widget.Button
@@ -13,6 +15,8 @@ import com.example.yeongpyo.ankoproject.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.constraint.layout._ConstraintLayout
 import org.jetbrains.anko.constraint.layout.constraintLayout
+import org.jetbrains.anko.constraint.layout.constraintSet
+import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class ConstrainSetUImaker(val context: Context) {
 
@@ -40,7 +44,13 @@ class ConstrainSetUImaker(val context: Context) {
     fun Constrain_layout1(): ConstraintLayout =
             with(context) {
                 constraintLayout {
-
+                    onClick {
+                        val bounds =  ChangeBounds().apply { interpolator = OvershootInterpolator() }
+                        val test = ConstraintSet().apply { clone(Constrain_layout2())}
+                        TransitionManager.beginDelayedTransition(this@constraintLayout, bounds)
+                        test.applyTo(this@constraintLayout)
+                        (this@ConstrainSetUImaker.context as ConstrainSetMain).setContentView(this@ConstrainSetUImaker.Constrain_layout2())
+                    }
                     id = constrainSetMainLayoutID
                     textView1().lparams(wrapContent, wrapContent) {
                         constrainSetMainLayoutID.let {
@@ -59,12 +69,18 @@ class ConstrainSetUImaker(val context: Context) {
                         }
                     }
                 }
-            }
+            }.apply {  }
 
-    @SuppressLint("ResourceType")
     fun Constrain_layout2(): ConstraintLayout =
             with(context) {
                 constraintLayout {
+                    onClick {
+                        val bounds =  ChangeBounds().apply { interpolator = OvershootInterpolator() }
+                        val test = ConstraintSet().apply { clone(Constrain_layout1())}
+                        TransitionManager.beginDelayedTransition(this@constraintLayout, bounds)
+                        test.applyTo(this@constraintLayout)
+                        (this@ConstrainSetUImaker.context as ConstrainSetMain).setContentView(this@ConstrainSetUImaker.Constrain_layout1())
+                    }
                     id = constrainSetMainLayoutID
                     textView2().lparams(wrapContent, wrapContent) {
                         constrainSetMainLayoutID.let {
@@ -80,10 +96,11 @@ class ConstrainSetUImaker(val context: Context) {
                             leftToLeft = it
                             rightToRight = it
                             bottomToBottom = it
+                            topToTop = it
                         }
-                    }
+                    }.apply { onClick { toast("aa") } }
                 }
-            }
+            }.apply { bringToFront() }
 
     var constrainsetBoolean = false
     fun Bounds(){

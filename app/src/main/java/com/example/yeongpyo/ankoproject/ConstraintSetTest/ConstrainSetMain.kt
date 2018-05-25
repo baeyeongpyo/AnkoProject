@@ -12,13 +12,15 @@ import android.widget.Button
 import com.example.yeongpyo.ankoproject.R
 import kotlinx.android.synthetic.main.activity_ani.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.toast
 
 class ConstrainSetMain : AppCompatActivity() {
     var constrainsetBoolean = false
-
+lateinit var ConstraintUIMaker : ConstrainSetUImaker
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val customclone = constraintsetclass_custom()
+
+      /* val customclone = constraintsetclass_custom()
         val test1 = LayoutInflater.from(this).inflate(R.layout.activity_ani, null) as ConstraintLayout
         val test2 = LayoutInflater.from(this).inflate(R.layout.activity_ani, null) as ConstraintLayout
         setContentView(test1)
@@ -31,23 +33,31 @@ class ConstrainSetMain : AppCompatActivity() {
             TransitionManager.beginDelayedTransition(test1, bounds )
             val constraint = if ( Change) aniset1 else  aniset2
             constraint.applyTo(test1)
-            Change = !Change
-        }
+            Change = !Change*/
 
-       /* val ConstraintUIMaker = ConstrainSetUImaker(this)
+
+       ConstraintUIMaker = ConstrainSetUImaker(this)
         setContentView(ConstraintUIMaker.Constrain_layout1())
-        var constrainset1 = ConstraintUIMaker.Constrain_layout1()
+       /* var constrainset1 = ConstraintUIMaker.Constrain_layout1()
         var constrainset2 = ConstraintUIMaker.Constrain_layout2()
 
         var setitem1 = ConstraintSet().apply { clone(constrainset1) }
         var setitem2 = ConstraintSet().apply { clone(this@ConstrainSetMain , R.layout.test) }
-*/
-        /*constrainset1.find<Button>(ConstraintUIMaker.ChangeButton).setOnClickListener {
+
+        constrainset1.find<Button>(ConstraintUIMaker.ChangeButton).setOnClickListener {
             val bounds = ChangeBounds().apply { interpolator = OvershootInterpolator() }
             TransitionManager.beginDelayedTransition(constrainset1, bounds)
             val constraint: ConstraintSet = if ( constrainsetBoolean ) setitem1 else setitem2
             constraint.applyTo(constrainset1)
             constrainsetBoolean = !constrainsetBoolean
         }*/
+    }
+    fun testmethod(){
+        setContentView(ConstraintUIMaker.Constrain_layout2())
+//        setContentView(ConstraintUIMaker.Constrain_layout1())
+    }
+    fun testmethod2(){
+        setContentView(ConstraintUIMaker.Constrain_layout1())
+//        setContentView(ConstraintUIMaker.Constrain_layout1())
     }
 }
