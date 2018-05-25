@@ -10,4 +10,9 @@
     <item name="Plus_minus_UI" type="id" />
     <item name="Plus_button" type="id" />
     <item name="Minus_button" type="id" />
+    <item name="constrainSetMainlayout" type="id" />
+    <item name="ConstrainSetTextVeiw" type="id" />
+    <item name="ConstrainButton" type="id" />
+
+    <item name="test" type="layout"/>
 </resources>
