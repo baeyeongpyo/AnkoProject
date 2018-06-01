@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.activity_ani.*
 import org.jetbrains.anko.contentView
 import org.jetbrains.anko.find
+import org.jetbrains.anko.setContentView
 import org.jetbrains.anko.toast
 
 class ConstrainSetMain : AppCompatActivity() {
@@ -24,6 +25,7 @@ class ConstrainSetMain : AppCompatActivity() {
 lateinit var ConstraintUIMaker : ConstrainSetUImaker
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+/*
 
        val customclone = constraintsetclass_custom()
         val test1
@@ -46,29 +48,24 @@ lateinit var ConstraintUIMaker : ConstrainSetUImaker
 //            clearFindViewByIdCache()
         }
 
+*/
 
-       /*ConstraintUIMaker = ConstrainSetUImaker(this)
-        setContentView(ConstraintUIMaker.Constrain_layout1())*/
-       /* var constrainset1 = ConstraintUIMaker.Constrain_layout1()
-        var constrainset2 = ConstraintUIMaker.Constrain_layout2()
+        val layout1 = ConstrainSetUImaker().setContentView(this)
+        val layout2 = ConstrainSetUImaker2().setContentView(this)
+        val viewGroup = layout1 as ConstraintLayout
+        val viewGroup2 = layout2 as ConstraintLayout
 
-        var setitem1 = ConstraintSet().apply { clone(constrainset1) }
-        var setitem2 = ConstraintSet().apply { clone(this@ConstrainSetMain , R.layout.test) }
+        var setitem1 = ConstraintSet().apply { clone(layout1 )}
+        var setitem2 = ConstraintSet().apply { clone(layout2 )}
 
-        constrainset1.find<Button>(ConstraintUIMaker.ChangeButton).setOnClickListener {
+        setContentView(layout1)
+
+        layout1.findViewById<Button>(R.id.ConstrainButton).setOnClickListener {
             val bounds = ChangeBounds().apply { interpolator = OvershootInterpolator() }
-            TransitionManager.beginDelayedTransition(constrainset1, bounds)
-            val constraint: ConstraintSet = if ( constrainsetBoolean ) setitem1 else setitem2
-            constraint.applyTo(constrainset1)
+            TransitionManager.beginDelayedTransition(viewGroup, bounds)
+            val constraint: ConstraintSet = if (constrainsetBoolean) setitem1 else setitem2
+            constraint.applyTo(viewGroup)
             constrainsetBoolean = !constrainsetBoolean
-        }*/
-    }
-    fun testmethod(){
-        setContentView(ConstraintUIMaker.Constrain_layout2())
-//        setContentView(ConstraintUIMaker.Constrain_layout1())
-    }
-    fun testmethod2(){
-        setContentView(ConstraintUIMaker.Constrain_layout1())
-//        setContentView(ConstraintUIMaker.Constrain_layout1())
+        }
     }
 }
