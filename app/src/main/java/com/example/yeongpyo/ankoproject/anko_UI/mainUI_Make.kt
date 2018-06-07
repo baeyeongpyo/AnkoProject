@@ -2,17 +2,18 @@ package com.example.yeongpyo.ankoproject.anko_UI
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import com.example.yeongpyo.ankoproject.AnkoRecyclerView_test
 import com.example.yeongpyo.ankoproject.MainActivity
 import com.example.yeongpyo.ankoproject.R
 import org.jetbrains.anko.*
 import org.jetbrains.anko.constraint.layout.constraintLayout
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 
-class mainUI_Make : AnkoComponent<MainActivity> {
+class mainUI_Make : AnkoComponent<AnkoRecyclerView_test> {
 
     lateinit var recyclerview : RecyclerView
 
-    override fun createView(ui: AnkoContext<MainActivity>): View {
+    override fun createView(ui: AnkoContext<AnkoRecyclerView_test>): View {
         val mainconstraint = R.id.mainConstraint
         val mainTextView = R.id.mainTextView
         val mainRecylerView = R.id.mainRecylerView
